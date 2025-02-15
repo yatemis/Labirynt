@@ -4,7 +4,7 @@ public class MusicChanger : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip newMusic;
-    public LevelCompleteText levelCompleteTextScript; // Referencja do skryptu LevelCompleteText
+    public LevelCompleteText levelCompleteTextScript; 
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,7 +19,7 @@ public class MusicChanger : MonoBehaviour
 
             if (levelCompleteTextScript != null)
             {
-                levelCompleteTextScript.ShowText(); // Wywo?anie metody ShowText
+                levelCompleteTextScript.ShowText(); 
             }
         }
     }

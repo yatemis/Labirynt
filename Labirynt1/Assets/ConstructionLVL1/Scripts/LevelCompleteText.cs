@@ -1,23 +1,23 @@
 using UnityEngine;
-using TMPro;  // Dodaj to, ?eby u?ywa? TextMeshPro
+using TMPro; 
 
 public class LevelCompleteText : MonoBehaviour
 {
-    private TextMeshProUGUI levelCompleteText; // Komponent TextMeshProUGUI
+    private TextMeshProUGUI levelCompleteText; 
     private float displayTime = 3f;
 
     void Start()
     {
-        // U?ywamy GetComponent do pobrania komponentu TextMeshProUGUI
-        levelCompleteText = GetComponentInChildren<TextMeshProUGUI>();  // Pobierz komponent TextMeshProUGUI z dziecka
+      
+        levelCompleteText = GetComponentInChildren<TextMeshProUGUI>();  
 
         if (levelCompleteText == null)
         {
-            Debug.LogError("Komponent TextMeshProUGUI nie zosta? znaleziony na obiekcie!");
+            Debug.LogError("Komponent TextMeshProUGUI nie zostal znaleziony na obiekcie!");
         }
         else
         {
-            levelCompleteText.enabled = false; // Ukrywamy tekst na pocz?tku
+            levelCompleteText.enabled = false;
         }
     }
 
@@ -25,8 +25,8 @@ public class LevelCompleteText : MonoBehaviour
     {
         if (levelCompleteText != null)
         {
-            levelCompleteText.enabled = true; // Pokazuje tekst
-            Invoke("HideText", displayTime);  // Ukrywa tekst po okre?lonym czasie
+            levelCompleteText.enabled = true; 
+            Invoke("HideText", displayTime);  
         }
     }
 
@@ -34,7 +34,7 @@ public class LevelCompleteText : MonoBehaviour
     {
         if (levelCompleteText != null)
         {
-            levelCompleteText.enabled = false; // Ukrywa tekst
+            levelCompleteText.enabled = false; 
         }
     }
 }
