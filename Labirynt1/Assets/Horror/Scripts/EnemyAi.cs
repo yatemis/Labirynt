@@ -42,7 +42,7 @@ public class EnemyAI : MonoBehaviour
             else if (!isAttacking)
             {
                 agent.ResetPath();
-                anim.SetBool("isMoving", false);
+                anim.SetBool("isMoving", true);
             }
         }
     }

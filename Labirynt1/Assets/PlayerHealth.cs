@@ -6,7 +6,8 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
-    public Slider healthBar; 
+    public Slider healthBar;
+    public GameObject gameOverScreen; // Ekran ko?cowy
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        Debug.Log("Gracz otrzymal obrazenia! Aktualne HP: " + currentHealth);
+        Debug.Log("Gracz otrzyma? obra?enia! Aktualne HP: " + currentHealth);
 
         UpdateHealthUI();
 
@@ -31,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); 
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         Debug.Log("Gracz uzdrowiony! Aktualne HP: " + currentHealth);
 
         UpdateHealthUI();
@@ -47,7 +48,21 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Gracz zginal!");
-        
+        Debug.Log("Gracz zgin??!");
+        ShowGameOverScreen();
+    }
+
+    public void CompleteGame()
+    {
+        Debug.Log("Gra uko?czona!");
+        ShowGameOverScreen();
+    }
+
+    void ShowGameOverScreen()
+    {
+        if (gameOverScreen != null)
+        {
+            gameOverScreen.SetActive(true); // Aktywuje ekran ko?cowy
+        }
     }
 }
